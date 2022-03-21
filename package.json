@@ -1,0 +1,35 @@
+{
+  "name": "typescript-playwright-template",
+  "version": "1.0.0",
+  "description": "Template for typescript projects with playwright",
+  "main": "index.ts",
+  "scripts": {
+    "docker": "run-s -cln docker:build docker:run",
+    "docker:build": "docker build . -t orieken/typescript-playwright-template",
+    "docker:run": "docker run -it orieken/typescript-playwright-template",
+    "docker:rm": "docker images -a | grep \"typescript-playwright-template\" | awk '{print $3}' | xargs docker rmi -f",
+    "test": "run-p -cln test:*",
+    "test:api": "playwright test --project api",
+    "test:web": "playwright test  --project chromium firefox webkit",
+    "prelint": "npm run prettier",
+    "lint": "eslint . --ext .ts --fix",
+    "prettier": "prettier --config .prettierrc 'specs/**/*.ts' --write"
+  },
+  "author": "Rieken",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.20.0",
+    "@types/node": "^17.0.22",
+    "@typescript-eslint/eslint-plugin": "^5.16.0",
+    "@typescript-eslint/parser": "^5.16.0",
+    "eslint": "^8.11.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-clean-code": "^0.1.12",
+    "eslint-plugin-prettier": "^4.0.0",
+    "npm-run-all": "^4.1.5",
+    "playwright": "^1.20.0",
+    "prettier": "^2.6.0",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2"
+  }
+}
