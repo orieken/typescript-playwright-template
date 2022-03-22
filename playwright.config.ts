@@ -18,10 +18,12 @@ function getReporter() {
   const reporters = [];
   if (process.env.CI) {
     reporters.push(['github']);
+    reporters.push(['junit', { outputFile: `./playwright-report/${getTestGroup()}.xml` }]);
   } else {
     reporters.push(['list']);
+    reporters.push(['html', { open: 'never', outputFolder: `./playwright-report/${getTestGroup()}/` }]);
   }
-  reporters.push(['html', { open: 'never', outputFolder: `./playwright-report/${getTestGroup()}/` }]);
+
   return reporters as
     | LiteralUnion<'list' | 'dot' | 'line' | 'github' | 'json' | 'junit' | 'null' | 'html', string>
     | ReporterDescription[];

@@ -36,3 +36,11 @@ jobs:
       with:
         name: test-results
         path: playwright-report
+    - name: Publish Report
+      if: always()
+      uses: dorny/test-reporter@v1
+      with:
+        artifact: test-results
+        name: Tests
+        path: 'playwright-report/*.xml'
+        reporter: jest-junit
