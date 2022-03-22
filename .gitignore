@@ -105,3 +105,6 @@ dist
 
 # Jetbrains dir
 .idea/
+
+# reports dir
+playwright-report/

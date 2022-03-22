@@ -9,8 +9,8 @@
     "docker:run": "docker run -it orieken/typescript-playwright-template",
     "docker:rm": "docker images -a | grep \"typescript-playwright-template\" | awk '{print $3}' | xargs docker rmi -f",
     "test": "run-p -cln test:*",
-    "test:api": "playwright test --project api",
-    "test:web": "playwright test  --project chromium firefox webkit",
+    "test:api": "TEST_GROUP=api playwright test --project api",
+    "test:web": "TEST_GROUP=web playwright test  --project chromium firefox webkit",
     "prelint": "npm run prettier",
     "lint": "eslint . --ext .ts --fix",
     "prettier": "prettier --config .prettierrc 'specs/**/*.ts' --write"
