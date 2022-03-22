@@ -36,7 +36,7 @@ jobs:
       with:
         artifact: test-results
         name: Tests
-        path: 'playwright-report/*.xml'
+        path: './playwright-report/*.xml'
         reporter: jest-junit
     - name: Upload test results
       if: always()
