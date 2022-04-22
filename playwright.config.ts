@@ -48,6 +48,7 @@ const config: PlaywrightTestConfig = {
     },
     {
       name: 'chromium',
+      timeout: 600000,
       use: { ...devices['Desktop Chrome'] },
       testIgnore: /api\/.*\/*.spec.ts/,
     },
